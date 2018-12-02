@@ -242,7 +242,7 @@ function validZip(countryCode, zip)	{
 			break;
 		case "DK":
 			// Denmark
-			countryZipCodeLength = 5;
+			countryZipCodeLength = 4;
 			countryZipLow = 800; // 0800
 			countryZipHigh = 9990;
 			break;
