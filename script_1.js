@@ -172,6 +172,10 @@ $("#decode-button").click(function(){
 	else	{
 		// Create an "error" barcode
 		// Could simply hide it as well, but this gives the error nice visibilty
+		// If the virtualCode is an empty string, add something to it first
+		if (virtualCode == "")	{
+			virtualCode = "Empty error";
+		}
 		$("#barcode").JsBarcode(virtualCode, {format:"CODE128", text: errorText, margin: 0, lineColor: "#990000"});
 	}
 
