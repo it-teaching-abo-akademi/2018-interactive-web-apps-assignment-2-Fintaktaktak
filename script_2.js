@@ -64,7 +64,7 @@ function updateCookie()	{
 	}
 	// Set end to cookie string
 	largeCookie = largeCookie + "akademiZipSearchEnd" + expires;
-console.log(largeCookie);
+
 	// Save cookie
 	document.cookie = largeCookie;
 }
@@ -73,8 +73,6 @@ function parseCookie()	{
 	// Decode cookie
 	var cookieInput = decodeURIComponent(document.cookie);
 
-console.log(cookieInput);
-console.log(".");
 	// Cut down cookie string to only the data that we want
 	cookieInput = cookieInput.slice(cookieInput.indexOf("akademiZipSearchData=") + 21, cookieInput.indexOf("akademiZipSearchEnd"));
 
@@ -184,12 +182,81 @@ function validZip(countryCode, zip)	{
 	var countryZipHigh = 0;
 
 	// Setup the requirements for the specified country
+	// In hindsight I should probably have set this up as some key : value dictionary
+	// Then I could have populated both the option selector and done the check using
+	// it
 	switch (countryCode)	{
+		case "AR":
+			// Argentina
+			countryZipCodeLength = 4;
+			countryZipLow = 1601;
+			countryZipHigh = 9431;
+			break;
+		case "AS":
+			// American Samoa
+			countryZipCodeLength = 5;
+			countryZipLow = 96799;
+			countryZipHigh = 96799;
+			break;
+		case "AT":
+			// Austria
+			countryZipCodeLength = 4;
+			countryZipLow = 1010;
+			countryZipHigh = 9992;
+			break;
+		case "AU":
+			// Australia
+			countryZipCodeLength = 4;
+			countryZipLow = 0200;
+			countryZipHigh = 9726;
+			break;
+		case "BD":
+			// Bangladesh
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9461;
+			break;
+		case "BE":
+			// Belgium
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9992;
+			break;
+		case "BG":
+			// Bulgaria
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9974;
+			break;
+ 		case "CH":
+			// Switzerland
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9658;
+			break;
 		case "DE":
 			// Germany
 			countryZipCodeLength = 5;
 			countryZipLow = 01067;
 			countryZipHigh = 99998;
+			break;
+		case "DK":
+			// Denmark
+			countryZipCodeLength = 5;
+			countryZipLow = 800; // 0800
+			countryZipHigh = 9990;
+			break;
+		case "DO":
+			// Dominican Republic
+			countryZipCodeLength = 5;
+			countryZipLow = 10101;
+			countryZipHigh = 11906;
+			break;
+		case "ES":
+			// Spain
+			countryZipCodeLength = 5;
+			countryZipLow = 01001;
+			countryZipHigh = 52080;
 			break;
 		case "FI":
 			// Finland
@@ -197,11 +264,191 @@ function validZip(countryCode, zip)	{
 			countryZipLow = 2;
 			countryZipHigh = 99999;
 			break;
+		case "FO":
+			// Faroe Islands
+			countryZipCodeLength = 3;
+			countryZipLow = 100;
+			countryZipHigh = 970;
+			break;
 		case "FR":
 			// France
 			countryZipCodeLength = 5;
 			countryZipLow = 1000;
 			countryZipHigh = 98799;
+			break;
+		case "GF":
+			// French Guyana
+			countryZipCodeLength = 5;
+			countryZipLow = 97300;
+			countryZipHigh = 97300;
+			break;
+		case "GL":
+			// Greenland
+			countryZipCodeLength = 4;
+			countryZipLow = 2412;
+			countryZipHigh = 3992;
+			break;
+		case "GP":
+			// Guadeloupe
+			countryZipCodeLength = 5;
+			countryZipLow = 97100;
+			countryZipHigh = 97190;
+			break;
+		case "GT":
+			// Guatemala
+			countryZipCodeLength = 5;
+			countryZipLow = 01001;
+			countryZipHigh = 22027;
+			break;
+		case "GU":
+			// Guam
+			countryZipCodeLength = 5;
+			countryZipLow = 96910;
+			countryZipHigh = 96932;
+			break;
+		case "GY":
+			// Guyana
+			countryZipCodeLength = 5;
+			countryZipLow = 97312;
+			countryZipHigh = 97360;
+			break;
+		case "HR":
+			// Croatia
+			countryZipCodeLength = 5;
+			countryZipLow = 10000;
+			countryZipHigh = 52396;
+			break;
+		case "HU":
+			// Hungary
+			countryZipCodeLength = 4;
+			countryZipLow = 1011;
+			countryZipHigh = 9985;
+			break;
+		case "IN":
+			// India
+			countryZipCodeLength = 6;
+			countryZipLow = 110001;
+			countryZipHigh = 855126;
+			break;
+		case "IS":
+			// Iceland
+			countryZipCodeLength = 3;
+			countryZipLow = 101;
+			countryZipHigh = 902;
+			break;
+		case "IT":
+			// Italy
+			countryZipCodeLength = 5;
+			countryZipLow = 00010;
+			countryZipHigh = 98168;
+			break;
+		case "LI":
+			// Lichtenstein
+			countryZipCodeLength = 4;
+			countryZipLow = 9485;
+			countryZipHigh = 9498;
+			break;
+		case "LT":
+			// Lithuania
+			countryZipCodeLength = 5;
+			countryZipLow = 00001;
+			countryZipHigh = 99069;
+			break;
+		case "MC":
+			// Monaco
+			countryZipCodeLength = 5;
+			countryZipLow = 97100;
+			countryZipHigh = 97190;
+			break;
+		case "MH":
+			// Marshall Islands
+			countryZipCodeLength = 5;
+			countryZipLow = 96960;
+			countryZipHigh = 96970;
+			break;
+		case "MK":
+			// Macedonia
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 7550;
+			break;
+		case "MP":
+			// Northern Mariana Islands
+			countryZipCodeLength = 5;
+			countryZipLow = 96950;
+			countryZipHigh = 96952;
+			break;
+		case "MQ":
+			// Martinique
+			countryZipCodeLength = 5;
+			countryZipLow = 97200;
+			countryZipHigh = 97290;
+			break;
+		case "MX":
+			// Mexico
+			countryZipCodeLength = 5;
+			countryZipLow = 01000;
+			countryZipHigh = 99998;
+			break;
+		case "MY":
+			// Malaysia
+			countryZipCodeLength = 5;
+			countryZipLow = 01000;
+			countryZipHigh = 98859;
+			break;
+		case "NL":
+			// Holland
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9999;
+			break;
+		case "NO":
+			// Norway
+			countryZipCodeLength = 4;
+			countryZipLow = 0001;
+			countryZipHigh = 9991;
+			break;
+		case "NZ":
+			// New Zealand
+			countryZipCodeLength = 4;
+			countryZipLow = 0110;
+			countryZipHigh = 9893;
+			break;
+		case "PH":
+			// Phillippines
+			countryZipCodeLength = 4;
+			countryZipLow = 0400;
+			countryZipHigh = 9811;
+			break;
+		case "PK":
+			// Pakistan
+			countryZipCodeLength = 5;
+			countryZipLow = 10010;
+			countryZipHigh = 97320;
+			break;
+		case "PM":
+			// Saint Pierre and Miquelon
+			countryZipCodeLength = 5;
+			countryZipLow = 97500;
+			countryZipHigh = 97500;
+			break;
+		case "PR":
+			// Puerto Rico
+			countryZipCodeLength = 5;
+			countryZipLow = 601; //00601
+			countryZipHigh = 988; //00988
+			break;
+		case "RE":
+			// French Reunion
+			countryZipCodeLength = 5;
+			countryZipLow = 97400;
+			countryZipHigh = 97490;
+			break;
+		case "RU":
+			// Russia
+			countryZipCodeLength = 6;
+			countryZipLow = 101000;
+			countryZipHigh = 901993;
 			break;
 		case "SE":
 			// Sweden
@@ -209,7 +456,66 @@ function validZip(countryCode, zip)	{
 			countryZipLow = 10005;
 			countryZipHigh = 98499;
 			break;
-
+		case "SI":
+			// Slovenia
+			countryZipCodeLength = 4;
+			countryZipLow = 1000;
+			countryZipHigh = 9600;
+			break;
+		case "SJ":
+			// Svalbard & Jan Mayen Islands
+			countryZipCodeLength = 4;
+			countryZipLow = 8099;
+			countryZipHigh = 9178;
+			break;
+		case "SM":
+			// San Marino
+			countryZipCodeLength = 5;
+			countryZipLow = 47890;
+			countryZipHigh = 47899;
+			break;
+		case "TH":
+			// Thailand
+			countryZipCodeLength = 5;
+			countryZipLow = 10100;
+			countryZipHigh = 96220;
+			break;
+		case "TR":
+			// Turkey
+			countryZipCodeLength = 5;
+			countryZipLow = 01000;
+			countryZipHigh = 81950;
+			break;
+		case "US":
+			// United States
+			countryZipCodeLength = 5;
+			countryZipLow = 00210;
+			countryZipHigh = 99950;
+			break;
+		case "VA":
+			// Vatican
+			countryZipCodeLength = 5;
+			countryZipLow = 00120;
+			countryZipHigh = 00120;
+			break;
+		case "VI":
+			// Virgin Island
+			countryZipCodeLength = 5;
+			countryZipLow = 801; //00801
+			countryZipHigh = 851; //00851
+			break;
+		case "YT":
+			// Mayotte
+			countryZipCodeLength = 5;
+			countryZipLow = 97600;
+			countryZipHigh = 97680;
+			break;
+		case "ZA":
+			// South Africa
+			countryZipCodeLength = 4;
+			countryZipLow = 0002;
+			countryZipHigh = 9992;
+			break;
 		default:
 			// If it isn't a supported country we will return early here
 			// Should be impossible to reach during normal operation as
