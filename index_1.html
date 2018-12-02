@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Assignment 2 - 1
+</title>
+
+<!-- need to specify charset or oterhwise the .min version of JsBarcode will -->
+<!-- not work correctly -->
+<meta charset="utf-8"/>
+<!-- link to css file used for the html page -->
+<link rel="stylesheet" type="text/css" href="style_1.css">
+
+
+<!-- jQuery library (hosted by Google) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="jquery-3.3.1.js"></script> -->
+<!-- JsBardcode library -->
+<script src="JsBarcode.all.min.js"></script>
+<!-- Own script -->
+<script src="script_1.js"></script>
+</head>
+<body>
+
+<!-- Place to enter virtual code -->
+<div class="input">
+	Virtual bar code: <input id="virtual-code-input" class="input" type="text" placeholder = "Enter virtual code here" value="">
+</div>
+<!-- Decode button and hide button -->
+<div class="button">
+	<button class="decode-button" id="decode-button">Decode</button><button class="hide-button" id="hide-button">Hide</button>
+</div>
+<!-- Contains the virtual bar code information and the created barcode -->
+<div id="information", class="information">
+	<div class="information-text">
+		Payee's IBAN: <span id="payment-iban"></span>
+	</div>
+	<div class="information-text">
+		Amount to be paid: <span id="payment-amount"></span>
+	</div>
+	<div class="information-text">
+		Payment reference: <span id="payment-reference"></span>
+	</div>
+	<div class="information-text">
+		Due date: <span id="payment-date"></span>
+	</div>
+	<div class="information-barcode">
+		<svg id="barcode" class="barcode"></svg>
+	</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Assignment 2 - 3
+</title>
+<meta charset="utf-8"/>
+<!-- link to css file used for the html page -->
+<link rel="stylesheet" type="text/css" href="style_3.css" />
+<!-- this is a required inclusion for the Leaflet API (hosted online) -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+<!-- <link rel="stylesheet" type="text/css" href="leaflet/leaflet.css" /> -->
+
+<!-- jQuery library (hosted by Google) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!-- <script src="jquery-3.3.1.js"></script> -->
+<!-- Leaflet library (hosted online) -->
+<script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+<!-- <script type="text/javascript" src="leaflet/leaflet.js"></script> -->
+<!-- own javascript -->
+<script type="text/javascript" src="script_3.js"></script>
+
+</head>
+<body>
+
+<!-- Bus line/route selector -->
+<div class="main">
+	Select the bus line:  
+	<select id="select-line">
+	</select>
+	<span id="error">
+	</span>
+</div>
+<!-- Buttons to show/remove bus markers, refresh markers and show bus route -->
+<div class="main">
+	<span class="show-button">
+	<button id="show-button">Show buses</button>
+	</span>
+
+	<span class="refresh-button">
+	<button id="refresh-button" class="search-button">Refresh</button>
+	</span>
+	<span class="route-button">
+	<button id="route-button" class="search-button">Show route</button>
+	</span>
+</div>
+<!-- map -->
+<div id="map" class="main">bottom</div>
+</body>
+</html>

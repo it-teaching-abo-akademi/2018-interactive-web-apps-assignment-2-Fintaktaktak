@@ -1,0 +1,62 @@
+/* Width/height includes padding and margins */
+* {
+	box-sizing: border-box;
+}
+
+// Setup some defaults
+div	{
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
+input	{
+	background-color: white;
+	border: 1px solid black;
+	background: none;
+	box-shadow: none;
+	width: 20em;
+}
+select	{
+	width: 33em;
+}
+button	{
+	border: 1px solid black;
+	width: 20em;
+	height: 3em;
+	margin: 0;
+	padding: 0;
+	background-color: #dddddd;
+}
+button:disabled	{
+	background-color: #cccccc;	
+}
+span	{
+	display: flex;
+	flex-grow: 1;
+}
+
+
+div.main	{
+	display: flex;
+	margin-top: 2em;
+	margin-right: 1em;
+	margin-left: 1em;
+	min-width: 50em;
+}
+div#map	{
+	border: 1px solid black;
+	min-height: 40em;
+	margin-bottom: 2em;
+}
+span.show-button	{
+	justify-content: flex-start;
+}
+span.refresh-button	{
+	justify-content: center;
+}
+span.route-button	{
+	justify-content: flex-end;
+}
+span#error	{
+	margin-left: 10px;
+}
