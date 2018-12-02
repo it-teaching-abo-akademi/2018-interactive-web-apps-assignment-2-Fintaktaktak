@@ -383,33 +383,47 @@ $("#select-line").change(function()	{
 	// Also respect timers in order to prevent request spamming
 
 	if (busMarkersStatus[$("#select-line").val()] == 1)	{
+		// If there are markers, disable refresh and change text on show
+		$("#refresh-button").attr("disabled", "disabled");
 		$("#show-button").text("Remove buses");
+
+		// Clear timeouts
 		clearTimeout(showTimer);
 		clearTimeout(refreshTimer);
 
+		// Check if a timer is still needed
 		var currentTime = Date.now();
 		if (currentTime < timeoutEnd)	{
+			// If there is a need, set one for refresh
 			refreshTimer = setTimeout(function()	{
 				$("#refresh-button").removeAttr("disabled");
 			}, timeoutEnd - currentTime);
 		}
 		else	{
+			// Otherwise enable directly
 			$("#refresh-button").removeAttr("disabled");
 		}
 	}
 	else	{
+		// If there are no bus markers from the route, disable both buttons
+		// Also make sure show button says "Show buses"
 		$("#refresh-button").attr("disabled", "disabled");
-		$("#show-button").text("Show buses");
+		$("#show-button").attr("disabled", "disabled").text("Show buses");
+
+		// Clear timeout functions
 		clearTimeout(showTimer);
 		clearTimeout(refreshTimer);
 
+		// Check if a timer is needed
 		var currentTime = Date.now();
 		if (currentTime < timeoutEnd)	{
+			// If it is, set a timeout for enabling the show button
 			showTimer = setTimeout(function()	{
 				$("#show-button").removeAttr("disabled");
 			}, timeoutEnd - currentTime);
 		}
 		else	{
+			// Otherwise enable it directly
 			$("#show-button").removeAttr("disabled");
 		}
 	}
