@@ -1,0 +1,79 @@
+/* Width/height includes padding and margins */
+* {
+	box-sizing: border-box;
+}
+
+div.input	{
+	min-width: 50em;
+	margin: 1em;
+}
+
+div.button	{
+	display: flex;
+	min-width: 50em;
+	justify-content: flex-end;
+	margin: 1em;
+}
+div.button button	{
+	width:8rem;
+	height: 2.5rem;
+	font-size: 1.5em;
+}
+button.decode-button	{
+	margin-left: 5em;
+	margin-right: auto;
+}
+button.hide-button	{
+	margin-left: 0em;
+	margin-right: 1em;
+}
+
+
+div.information	{
+	min-width: 50em;
+	height: 15em;
+	border: 1px solid black;
+/*	vertical-align: top;*/
+	margin: 1em;
+	padding: 0;
+}
+div.information-text	{
+	display: inline-block;
+	min-width: 48%;
+	margin: 0.5% 0.5% 0.5% 0.5%;
+}
+div.information-barcode	{
+	display: flex;
+	width: 100%;
+	min-height: 5%;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	justify-content: center;
+}
+
+
+
+input.input	{
+	min-width: 40em;
+}
+
+
+svg.barcode	{
+	margin: 0;
+	padding: 0;
+}
+/* When printing make sure to conform to bar code size restrictions */
+/* Not really possible to do adequately on screen */
+@media only print	{
+	svg.barcode	{
+		max-width: 105mm;
+		min-width: 70mm;
+		max-height: 12.7mm;
+		min-height: 10mm;
+		margin-top: 0mm;
+		margin-right: 20mm;
+		margin-bottom: 5mm;
+		margin-left: 20mm;
+	}
+}
+

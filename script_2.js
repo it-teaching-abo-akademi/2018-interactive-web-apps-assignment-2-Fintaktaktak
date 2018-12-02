@@ -381,7 +381,7 @@ $("#search-button").click(function()	{
 		// Then do the actual request
 		var jqxhr = $.ajax({
 			dataType: "html",
-			url: "http://api.zippopotam.us/" + countryCode + "/" + zip
+			url: "https://api.zippopotam.us/" + countryCode + "/" + zip
 		});
 		// Finally setup callback to be done once the page request is done
 		jqxhr.done(function(data) {

@@ -156,7 +156,7 @@ $("#select-line").removeAttr("disabled");
 // Start by requesting routes information
 var jqxhrRoutes = $.ajax({
 	dataType: "json",
-	url: "http://data.foli.fi/gtfs/routes",
+	url: "https://data.foli.fi/gtfs/routes",
 });
 // Setup callbacks for route information request
 jqxhrRoutes.done(function(data, textStatus, jqXHR) {
@@ -273,7 +273,7 @@ $("#show-button").click(function()	{
 	var jqxhrPositions = $.ajax({
 		dataType: "json",
 		crossDomain: true,
-		url: "http://data.foli.fi/siri/vm"
+		url: "https://data.foli.fi/siri/vm"
 	});
 	// Then setup callbacks to be done onces the request is done
 	jqxhrPositions.done(function(dataPositions, textStatusPositions, jqxhrPositionsCallback)	{
@@ -347,7 +347,7 @@ $("#refresh-button").click(function()	{
 	var jqxhrPositions = $.ajax({
 		dataType: "json",
 		crossDomain: true,
-		url: "http://data.foli.fi/siri/vm"
+		url: "https://data.foli.fi/siri/vm"
 	});
 	// Then setup callbacks to be done onces the request is done
 	jqxhrPositions.done(function(dataPositions, textStatusPositions, jqxhrPositionsCallback)	{
